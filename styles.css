@@ -1,0 +1,132 @@
+body {
+    background: linear-gradient(to right, #f06, #48f);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 400px;
+    height: 600px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.chat-header {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: headerAnimation 1s ease-in-out;
+}
+
+@keyframes headerAnimation {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-body {
+    flex: 1;
+    overflow-y: auto;
+    background: #f9f9f9;
+    padding: 20px;
+    position: relative;
+}
+
+.chat-footer {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    border-top: 2px solid #eee;
+    padding: 10px 20px;
+}
+
+input {
+    flex: 1;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 20px;
+    position: relative;
+    animation: fadeIn 0.5s ease-out;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-radius: 20px 20px 0 20px;
+    animation: userMessage 0.5s ease-out forwards;
+}
+
+@keyframes userMessage {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.bot {
+    background-color: #e0e0e0;
+    color: black;
+    align-self: flex-start;
+    border-radius: 20px 20px 20px 0;
+    animation: botMessage 0.5s ease-out forwards;
+}
+
+@keyframes botMessage {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
